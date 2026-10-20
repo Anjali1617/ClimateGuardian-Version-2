@@ -1,0 +1,95 @@
+timestamp,username,action,points,id
+2026-04-16 19:43:31,anjali519,Eco-Runner Game,50.0,1
+2026-04-16 19:45:19,anjali519,Eco Sorter Game,34.0,2
+2026-04-16 19:46:42,anjali519,Eco Cricket Game,15.0,3
+2026-04-16 19:47:54,anjali519,Waste Segregation Attempt,0.0,4
+2026-04-16 19:49:18,anjali519,Waste Segregation Attempt,20.0,5
+2026-04-16 19:50:34,anjali519,Planet Earth Game,-10.0,6
+2026-04-16 19:51:41,anjali519,Eco Defender Game,0.0,7
+2026-04-16 20:04:54,anjali519,Sky Patrol Game,367.0,8
+2026-04-16 20:06:13,anjali519,Sky Patrol Game,551.0,9
+2026-04-16 20:06:50,anjali519,Certificate Issued,50.0,10
+2026-04-16 20:11:38,anjali519,Eco Cricket Game,-2.0,11
+2026-04-16 20:34:12,anjali519,Eco Cricket Game,10.0,12
+2026-04-16 20:40:58,anjali519,Eco Cricket Game,9.0,13
+2026-04-16 21:06:10,anjali519,Sky Patrol Game,95.0,14
+2026-04-16 21:06:26,anjali519,Sky Patrol Game,0.0,15
+2026-04-16 21:06:57,anjali519,Eco Cricket Game,0.0,16
+2026-04-16 21:14:52,anjali519,Eco Cricket Game,0.0,17
+2026-04-16 21:18:28,anjali519,Eco Cricket Game,0.0,18
+2026-04-16 21:23:04,anjali519,Eco Cricket Game,3.0,19
+2026-04-16 21:24:28,anjali519,Eco Cricket Game,-3.0,20
+2026-04-17 19:28:00,adarsh11,Eco Puzzle 3D Game,0.0,21
+2026-04-17 19:29:22,adarsh11,Sky Patrol Game,-4.0,22
+2026-04-17 19:39:00,adarsh11,Carbon Reduction,26.0,23
+2026-04-17 19:44:04,adarsh11,Composted Food (Potatoes),20.0,24
+2026-04-21 08:26:48,omkar123,Carbon Reduction,10.0,25
+2026-04-21 08:31:44,omkar123,Recycled Plastic (Verified),15.0,26
+2026-04-21 08:38:34,omkar123,Saved Electricity (Verified),15.0,27
+2026-04-21 08:40:49,omkar123,KBC Wrong (Easy),-2.5,28
+2026-04-21 08:41:19,omkar123,KBC Win (Easy),5.0,29
+2026-04-21 08:41:58,omkar123,KBC Win (Medium),5.0,30
+2026-04-21 08:45:15,omkar123,Waste Segregation Attempt,100.0,31
+2026-07-05 19:17:23,visnu24,Waste Segregation Attempt,0.0,32
+2026-07-06 18:52:56,visnu24,Waste Segregation Attempt,0.0,33
+2026-07-06 19:05:21,visnu24,Waste Segregation Attempt,0.0,34
+2026-07-06 19:18:47,visnu24,Waste Segregation Attempt,0.0,35
+2026-07-06 19:24:57,visnu24,Waste Segregation Attempt,0.0,36
+2026-07-06 20:13:20,visnu24,Waste Segregation Attempt,0.0,37
+2026-07-06 20:39:42,visnu24,Waste Segregation Attempt,0.0,38
+2026-07-06 20:50:36,visnu24,Waste Segregation Attempt,0.0,39
+2026-07-06 21:22:59,visnu24,Waste Segregation Attempt,0.0,40
+2026-07-06 22:28:53,visnu24,Waste Segregation Attempt,0.0,41
+2026-07-07 16:49:55,visnu24,Waste Segregation Attempt,0.0,42
+2026-07-07 17:24:19,visnu24,Waste Segregation Attempt,10.0,43
+2026-07-07 17:25:47,visnu24,Eco-Runner Game,50.0,44
+2026-07-07 17:27:43,visnu24,Waste Segregation Attempt,55.0,45
+2026-09-25 19:52:58,ayush321,Waste Segregation Attempt,80.0,46
+2026-09-25 21:12:26,ayush321,Waste Segregation Attempt,40.0,47
+2026-09-26 10:46:10,ayush321,KBC Wrong (Easy),-2.5,48
+2026-09-26 10:46:34,ayush321,KBC Wrong (Medium),-2.5,49
+2026-09-26 10:50:41,ayush321,Waste Segregation Attempt,30.0,50
+2026-09-26 12:01:02,ayush321,Eco-Runner Game,50.0,51
+2026-09-26 12:05:38,ayush321,Waste Segregation Attempt,30.0,52
+2026-09-26 12:08:22,ayush321,Ocean Guardian Game,10.0,53
+2026-09-26 12:09:44,ayush321,KBC Win (Easy),5.0,54
+2026-09-26 12:11:06,ayush321,KBC Wrong (Medium),-2.5,55
+2026-09-26 12:14:12,ayush321,Eco Cricket Game,6.0,56
+2026-09-26 20:23:43,ayush321,Recycled Plastic (Verified),15.0,57
+2026-09-26 20:25:42,ayush321,Walked to School (Verified),10.0,58
+2026-09-26 20:26:38,ayush321,Walked to School (Verified),10.0,59
+2026-09-26 20:30:17,ayush321,Saved Electricity (Verified),15.0,60
+2026-09-26 20:30:49,ayush321,Saved Electricity (Verified),15.0,61
+2026-09-26 20:32:43,ayush321,Composted Food (Potato),20.0,62
+2026-09-26 20:33:02,ayush321,Composted Food (Potato),20.0,63
+2026-09-26 20:35:51,ayush321,Composted Food (Potato),20.0,64
+2026-09-27 09:07:49,tam09,Recycled Plastic (Verified),15.0,65
+2026-09-27 09:09:38,tam09,Composted Food (Grapes),20.0,66
+2026-09-29 14:46:49,ayush321,Composted Food (Potato),20.0,67
+2026-09-29 14:47:49,ayush321,Recycled Plastic (Verified),15.0,68
+2026-09-29 15:01:32,ayush321,Recycled Plastic (Verified),15.0,69
+2026-09-29 15:02:14,ayush321,Composted Food (Potato),20.0,70
+2026-09-29 15:02:58,ayush321,Walked to School (Verified),10.0,71
+2026-09-29 15:03:34,ayush321,Carbon Reduction,26.0,72
+2026-09-29 15:03:44,ayush321,Carbon Reduction,24.0,73
+2026-09-29 15:03:54,ayush321,Carbon Reduction,24.0,74
+2026-09-29 15:04:17,ayush321,Certificate Issued,50.0,75
+2026-10-14 15:33:07,anjali519,Waste Segregation Attempt,0.0,76
+2026-10-14 15:33:44,anjali519,Waste Segregation Attempt,0.0,77
+2026-10-14 15:34:06,anjali519,Eco-Runner Game,0.0,78
+2026-10-14 15:34:29,anjali519,Eco Sorter Game,4.0,79
+2026-10-14 15:34:41,anjali519,Eco Puzzle 3D Game,0.0,80
+2026-10-14 15:37:26,anjali519,Recycled Plastic (Verified),15.0,81
+2026-10-14 17:06:58,anjali519,Waste Segregation Attempt,0.0,82
+2026-10-14 17:09:38,anjali519,Composted Food (Banana),20.0,83
+2026-10-14 17:24:19,anjali519,Waste Segregation Attempt,10.0,84
+2026-10-14 17:24:53,anjali519,KBC Wrong (Easy),-2.5,85
+2026-10-14 17:24:57,anjali519,KBC Wrong (Medium),-2.5,86
+2026-10-14 17:31:05,anjali519,Walked to School (Verified),10.0,87
+2026-10-20 20:13:05,anjali519,Eco-Runner Game,0.0,88
+2026-10-20 20:14:20,anjali519,Eco Sorter Game,37.0,89
+2026-10-20 20:15:27,anjali519,Waste Segregation Attempt,10.0,90
+2026-10-20 20:16:21,anjali519,Composted Food (Banana),20.0,91
+2026-10-20 20:16:48,anjali519,Composted Food (Cauliflower),20.0,92
+2026-10-20 20:17:08,anjali519,Composted Food (Cauliflower),20.0,93
+2026-10-20 20:37:05,anjali519,Waste Segregation Attempt,20.0,94

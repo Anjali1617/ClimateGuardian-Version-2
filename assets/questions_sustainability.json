@@ -1,0 +1,652 @@
+[
+  {
+    "q": "What do the '3Rs' stand for in waste management?",
+    "options": [
+      "Reduce, Reuse, Recycle",
+      "Restore, Return, Refine",
+      "Reuse, Repair, Replace",
+      "Reduce, Refuse, Recycle"
+    ],
+    "ans": 0,
+    "exp": "Reduce waste generation, reuse items, and recycle materials to minimize landfill.",
+    "topic": "waste",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which of the following is a renewable energy source?",
+    "options": [
+      "Coal",
+      "Oil",
+      "Solar",
+      "Natural Gas"
+    ],
+    "ans": 2,
+    "exp": "Solar power comes from sunlight and is renewable and low-carbon.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What greenhouse gas is most associated with human activities?",
+    "options": [
+      "Oxygen",
+      "Methane (CH₄)",
+      "Carbon Dioxide (CO₂)",
+      "Nitrogen"
+    ],
+    "ans": 2,
+    "exp": "CO₂ from fossil fuels is the primary greenhouse gas driving climate change.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which practice helps conserve water in agriculture?",
+    "options": [
+      "Flood irrigation",
+      "Drip irrigation",
+      "Overwatering",
+      "Clearing fields"
+    ],
+    "ans": 1,
+    "exp": "Drip irrigation delivers water directly to roots and reduces waste.",
+    "topic": "water",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'circular economy' mainly about?",
+    "options": [
+      "Linear production",
+      "Reusing and recycling products",
+      "Increasing consumption",
+      "Exporting waste"
+    ],
+    "ans": 1,
+    "exp": "A circular economy designs out waste and keeps products and materials in use.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which material is widely recycled to save energy compared to producing new one?",
+    "options": [
+      "Aluminum",
+      "Plastic bags",
+      "Styrofoam",
+      "Ceramics"
+    ],
+    "ans": 0,
+    "exp": "Recycling aluminum uses far less energy than producing new aluminum from ore.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What does 'biodiversity' refer to?",
+    "options": [
+      "Number of green buildings",
+      "Variety of life on Earth",
+      "Amount of recycling",
+      "Air quality index"
+    ],
+    "ans": 1,
+    "exp": "Biodiversity is the variety of species, ecosystems and genetics.",
+    "topic": "biodiversity",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which Sustainable Development Goal focuses on climate action?",
+    "options": [
+      "SDG 6",
+      "SDG 7",
+      "SDG 13",
+      "SDG 15"
+    ],
+    "ans": 2,
+    "exp": "SDG 13 is 'Climate Action' aimed at combating climate change and its impacts.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is a low-carbon transport option?",
+    "options": [
+      "Electric vehicle charged with renewables",
+      "Diesel truck",
+      "Private jet",
+      "Gasoline car"
+    ],
+    "ans": 0,
+    "exp": "EVs powered by renewable electricity have much lower operational emissions.",
+    "topic": "transport",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which action helps reduce food waste?",
+    "options": [
+      "Buying in bulk without planning",
+      "Proper food storage and planning",
+      "Throwing leftovers immediately",
+      "Over-ordering"
+    ],
+    "ans": 1,
+    "exp": "Meal planning and proper storage reduce food spoilage and waste.",
+    "topic": "waste",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'carbon footprint'?",
+    "options": [
+      "Amount of trees planted",
+      "Total greenhouse gas emissions by an activity",
+      "Quality of soil",
+      "Number of solar panels"
+    ],
+    "ans": 1,
+    "exp": "A carbon footprint measures greenhouse gas emissions associated with activities or products.",
+    "topic": "transport",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which is a benefit of urban green spaces?",
+    "options": [
+      "Increased temperatures",
+      "Reduced air quality",
+      "Improved mental health and biodiversity",
+      "More cars"
+    ],
+    "ans": 2,
+    "exp": "Parks improve air quality, reduce heat islands, and support wellbeing.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is an example of sustainable forestry?",
+    "options": [
+      "Clear-cutting entire hills",
+      "Selective logging and replanting",
+      "Logging without plans",
+      "Removing all undergrowth"
+    ],
+    "ans": 1,
+    "exp": "Selective logging with replanting maintains forest health and resources.",
+    "topic": "biodiversity",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which energy source produces near-zero emissions during operation?",
+    "options": [
+      "Coal",
+      "Wind",
+      "Oil",
+      "Diesel"
+    ],
+    "ans": 1,
+    "exp": "Wind turbines generate electricity with very low operational emissions.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What role do wetlands play in ecosystems?",
+    "options": [
+      "Increase flooding",
+      "Provide habitat and filter water",
+      "Decrease biodiversity",
+      "Cause pollution"
+    ],
+    "ans": 1,
+    "exp": "Wetlands act as natural filters and are important biodiversity hotspots.",
+    "topic": "water",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'energy efficiency'?",
+    "options": [
+      "Using more energy",
+      "Getting more output for less energy",
+      "Turning off all lights permanently",
+      "Using only fossil fuels"
+    ],
+    "ans": 1,
+    "exp": "Efficiency means achieving the same service with less energy input.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which farming practice reduces chemical runoff?",
+    "options": [
+      "Monoculture without buffers",
+      "Integrated pest management",
+      "Excessive fertilizer use",
+      "Clearing riparian zones"
+    ],
+    "ans": 1,
+    "exp": "Integrated pest management reduces reliance on chemicals and lowers runoff.",
+    "topic": "agriculture",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Why is sustainable consumption important?",
+    "options": [
+      "To increase waste",
+      "To reduce resource depletion",
+      "To boost single-use products",
+      "To ignore lifecycle"
+    ],
+    "ans": 1,
+    "exp": "Sustainable consumption reduces pressure on natural resources and ecosystems.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which sector is a major source of methane emissions?",
+    "options": [
+      "Aviation",
+      "Livestock/agriculture",
+      "Solar farms",
+      "Rail transport"
+    ],
+    "ans": 1,
+    "exp": "Enteric fermentation from livestock is a key source of methane emissions.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "How can buildings become more sustainable?",
+    "options": [
+      "Poor insulation",
+      "Energy-efficient design and retrofits",
+      "Leaving windows open in winter",
+      "Using only incandescent bulbs"
+    ],
+    "ans": 1,
+    "exp": "Better design, insulation and efficient systems reduce energy use in buildings.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'net-zero' (in climate terms)?",
+    "options": [
+      "Zero population growth",
+      "Balancing emitted and removed GHGs",
+      "No economic activity",
+      "No electricity use"
+    ],
+    "ans": 1,
+    "exp": "Net-zero means remaining emissions are balanced by removals like carbon capture or sinks.",
+    "topic": "general",
+    "difficulty": "hard"
+  },
+  {
+    "q": "Which ocean problem is caused by excessive nutrients and runoff?",
+    "options": [
+      "Eutrophication",
+      "Desalination",
+      "Overfishing recovery",
+      "Sea level drop"
+    ],
+    "ans": 0,
+    "exp": "Eutrophication causes algal blooms that harm marine life.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which material is biodegradable?",
+    "options": [
+      "PLA (industrial compostable) under conditions",
+      "PVC",
+      "Styrofoam",
+      "Glass"
+    ],
+    "ans": 0,
+    "exp": "Some bioplastics are compostable under industrial conditions; not all plastics biodegrade.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is the purpose of an Environmental Impact Assessment (EIA)?",
+    "options": [
+      "To ignore ecological damage",
+      "To evaluate environmental effects of projects",
+      "To encourage pollution",
+      "To increase emissions"
+    ],
+    "ans": 1,
+    "exp": "EIA identifies potential environmental impacts so they can be mitigated.",
+    "topic": "general",
+    "difficulty": "hard"
+  },
+  {
+    "q": "How does public transit help sustainability?",
+    "options": [
+      "Increases congestion",
+      "Reduces per-person emissions",
+      "Promotes single-occupancy vehicles",
+      "Uses only diesel buses"
+    ],
+    "ans": 1,
+    "exp": "High-capacity transit reduces emissions per passenger and congestion.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which practice helps restore degraded land?",
+    "options": [
+      "Afforestation and rewilding",
+      "Intensive mining",
+      "Urban sprawl",
+      "Removing topsoil"
+    ],
+    "ans": 0,
+    "exp": "Planting native species and restoration improves soil and biodiversity.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which chemical contributes to ozone layer depletion historically?",
+    "options": [
+      "Chlorofluorocarbons (CFCs)",
+      "CO₂",
+      "Methane",
+      "Water vapor"
+    ],
+    "ans": 0,
+    "exp": "CFCs were phased out under the Montreal Protocol to protect the ozone layer.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is sustainable fishing?",
+    "options": [
+      "Overfishing",
+      "Eating any fish without limits",
+      "Managing stocks to safe levels",
+      "Using destructive gear"
+    ],
+    "ans": 2,
+    "exp": "Sustainable fishing maintains populations and avoids ecosystem damage.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which action directly reduces household energy use?",
+    "options": [
+      "Leaving appliances on standby",
+      "Upgrading to LED lighting",
+      "Using oversized heating",
+      "Ignoring drafts"
+    ],
+    "ans": 1,
+    "exp": "LEDs use less energy and last longer than incandescent bulbs.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is climate adaptation?",
+    "options": [
+      "Preventing any change",
+      "Adjusting systems to manage climate impacts",
+      "Ignoring rising seas",
+      "Banning renewable energy"
+    ],
+    "ans": 1,
+    "exp": "Adaptation reduces vulnerability to climate effects like floods and heatwaves.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which crop practice supports soil health?",
+    "options": [
+      "Crop rotation and cover crops",
+      "Continuous monoculture",
+      "Excessive tillage",
+      "Removing organic matter"
+    ],
+    "ans": 0,
+    "exp": "Rotation and cover crops maintain soil structure and fertility.",
+    "topic": "agriculture",
+    "difficulty": "easy"
+  },
+  {
+    "q": "How does planting trees help the climate?",
+    "options": [
+      "They absorb CO₂ and store carbon",
+      "They increase emissions",
+      "They consume fossil fuels",
+      "They reflect sunlight like mirrors"
+    ],
+    "ans": 0,
+    "exp": "Trees sequester carbon and support biodiversity and microclimates.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which is a sustainable packaging choice?",
+    "options": [
+      "Single-use mixed plastics",
+      "Refillable containers",
+      "Non-recyclable laminates",
+      "Excessive packaging"
+    ],
+    "ans": 1,
+    "exp": "Refillable and reusable packaging cuts resource use and waste.",
+    "topic": "waste",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What does 'sustainable transport' emphasize?",
+    "options": [
+      "Private car dependence",
+      "Walking, cycling and efficient public transit",
+      "Shorter bike lanes",
+      "Exclusive highways"
+    ],
+    "ans": 1,
+    "exp": "Active travel and public transit lower emissions and improve health.",
+    "topic": "transport",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which policy can incentivize renewable energy?",
+    "options": [
+      "Fossil fuel subsidies",
+      "Feed-in tariffs or renewable incentives",
+      "Banning solar",
+      "Increasing coal imports"
+    ],
+    "ans": 1,
+    "exp": "Incentives and fair regulations encourage renewable deployment.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'food miles' a measure of?",
+    "options": [
+      "Distance food travels from production to consumer",
+      "Freshness only",
+      "Amount of pesticides",
+      "Calories per serving"
+    ],
+    "ans": 0,
+    "exp": "Shorter food miles often lower transport emissions, but full lifecycle matters.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which is an effect of melting polar ice?",
+    "options": [
+      "Rising sea levels",
+      "Lower sea levels",
+      "More polar bears",
+      "Better freshwater supply"
+    ],
+    "ans": 0,
+    "exp": "Melting ice contributes to sea level rise, affecting coastal communities.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What role do consumers play in sustainability?",
+    "options": [
+      "No influence",
+      "Choosing sustainable products and reducing waste",
+      "Demand for single-use goods",
+      "Promoting overconsumption"
+    ],
+    "ans": 1,
+    "exp": "Consumer choices can drive markets toward sustainable products.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which renewable technology stores energy for later use?",
+    "options": [
+      "Pumped hydro storage",
+      "Coal-fired plants",
+      "Gas flaring",
+      "Traditional batteries only"
+    ],
+    "ans": 0,
+    "exp": "Pumped hydro is a large-scale storage method; batteries are another option.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'sustainable tourism'?",
+    "options": [
+      "Mass tourism without rules",
+      "Travel that respects environment and local communities",
+      "Only travel by plane",
+      "Building hotels everywhere"
+    ],
+    "ans": 1,
+    "exp": "Sustainable tourism minimizes environmental impact and supports locals.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which is a direct benefit of energy efficiency?",
+    "options": [
+      "Higher bills",
+      "Lower emissions and cost savings",
+      "Increased energy waste",
+      "More resource use"
+    ],
+    "ans": 1,
+    "exp": "Efficiency lowers energy bills and reduces emissions.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "How can schools promote sustainability?",
+    "options": [
+      "Teach sustainable practices and reduce waste",
+      "Ignore climate topics",
+      "Remove recycling bins",
+      "Encourage single-use"
+    ],
+    "ans": 0,
+    "exp": "Education builds sustainable behaviors for future generations.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which is an international agreement on climate?",
+    "options": [
+      "Paris Agreement",
+      "Montreal Convention",
+      "Kyoto Protocol",
+      "All of these"
+    ],
+    "ans": 3,
+    "exp": "Kyoto, Montreal and Paris are key international environmental agreements (Montreal is for ozone).",
+    "topic": "policy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is a co-benefit of greening cities?",
+    "options": [
+      "More heat islands",
+      "Improved air quality and recreation",
+      "Less shade",
+      "Reduced biodiversity"
+    ],
+    "ans": 1,
+    "exp": "Green infrastructure improves air, reduces heat and supports community health.",
+    "topic": "general",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which behavior reduces single-use plastic?",
+    "options": [
+      "Using reusable bottles and bags",
+      "Buying bottled water daily",
+      "Using disposable cutlery",
+      "Leaving trash behind"
+    ],
+    "ans": 0,
+    "exp": "Reusable products are a simple way to cut single-use waste.",
+    "topic": "waste",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which element is key to a sustainable energy transition?",
+    "options": [
+      "Maintaining only fossil fuels",
+      "Rapid scale-up of renewables, storage and grids",
+      "Stopping energy efficiency",
+      "Reducing public transit"
+    ],
+    "ans": 1,
+    "exp": "Renewables plus storage and smarter grids enable deep decarbonization.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is 'life cycle assessment' (LCA)?",
+    "options": [
+      "A method to evaluate environmental impacts across a product's life",
+      "A shopping list",
+      "A weather forecast",
+      "A tax form"
+    ],
+    "ans": 0,
+    "exp": "LCA helps compare environmental footprints from production to disposal.",
+    "topic": "general",
+    "difficulty": "hard"
+  },
+  {
+    "q": "What practice reduces stormwater runoff in cities?",
+    "options": [
+      "Permeable pavements",
+      "More asphalt",
+      "Removing trees",
+      "Paving green spaces"
+    ],
+    "ans": 0,
+    "exp": "Permeable surfaces allow water infiltration, reducing runoff and flooding.",
+    "topic": "water",
+    "difficulty": "easy"
+  },
+  {
+    "q": "Which device helps households monitor energy use?",
+    "options": [
+      "Smart meter",
+      "Typewriter",
+      "Dial phone",
+      "Gas lantern"
+    ],
+    "ans": 0,
+    "exp": "Smart meters provide real-time energy usage data to encourage savings.",
+    "topic": "energy",
+    "difficulty": "easy"
+  },
+  {
+    "q": "What is a benefit of restoring peatlands?",
+    "options": [
+      "They release carbon",
+      "They store carbon and support biodiversity",
+      "They reduce water storage",
+      "They increase soil erosion"
+    ],
+    "ans": 1,
+    "exp": "Peatlands are important carbon sinks and support unique ecosystems.",
+    "topic": "biodiversity",
+    "difficulty": "hard"
+  }
+]

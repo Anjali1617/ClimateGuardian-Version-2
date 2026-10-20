@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test KBC</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #log { margin-top: 16px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h3>Test KBC Page</h3>
+  <div id="quizContent"></div>
+  <div id="log">Logs will appear here</div>
+
+  <script src="/js/quiz.js"></script>
+  <script>
+    // Wait for QUESTIONS to load, then start KBC and trigger Ask-Audience
+    function log(msg) { document.getElementById('log').textContent += '\n' + msg; }
+    (async function() {
+      try {
+        // wait until QUESTIONS is loaded
+        let tries = 0;
+        while((typeof QUESTIONS === 'undefined' || !QUESTIONS || QUESTIONS.length === 0) && tries < 30) {
+          await new Promise(r => setTimeout(r, 200));
+          tries++;
+        }
+        if (!QUESTIONS || QUESTIONS.length === 0) {
+          log('Questions not loaded');
+          return;
+        }
+        log('Questions loaded: ' + QUESTIONS.length);
+        setupQuizControlsIfPresent();
+        startKBC();
+        log('KBC started, level: ' + window.kbcLevel);
+        // wait a bit then trigger audience
+        setTimeout(() => {
+          const a = document.getElementById('lifeline-audience');
+          if (a) { a.click(); log('Clicked Ask-Audience'); }
+          else log('Ask-Audience button not found');
+        }, 800);
+      } catch (e) {
+        log('Error: ' + e);
+      }
+    })();
+  </script>
+</body>
+</html>

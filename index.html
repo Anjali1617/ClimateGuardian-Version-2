@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimateGuardian AI - Sustainability Games Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Custom Eco Theme */
+        body {
+            background: linear-gradient(135deg, #f4fdf4 0%, #e8f5e9 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .eco-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-left: 6px solid #4CAF50;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .eco-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .game-container {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 3px solid #4CAF50;
+            margin: 20px 0;
+        }
+        
+        .game-canvas {
+            border: 4px solid #2e7d32;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            display: block;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+            margin: 8px;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #2196F3 0%, #42A5F5 100%);
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-secondary:hover {
+            transform: scale(1.05);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #4CAF50;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 30px;
+            transition: width 0.5s ease;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: #e8f5e9;
+            border: 2px solid #4CAF50;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .tab-btn.active {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .game-title {
+            color: #2e7d32;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .game-subtitle {
+            text-align: center;
+            color: #388E3C;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .instructions {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .instructions h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            margin-left: 20px;
+            color: #388E3C;
+        }
+        
+        .instructions li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-6">
+        <!-- Header -->
+        <div class="eco-card">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold text-green-800 mb-2">🌍 ClimateGuardian AI</h1>
+                    <p class="text-green-700 text-lg">Your AI-powered companion for a greener planet</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-green-800">🌿 Eco-Score</div>
+                    <div class="text-3xl text-green-600" id="total-score">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('predict')">🎯 Predict Sustainability</button>
+            <button class="tab-btn" onclick="showTab('chat')">🤖 AI Chat</button>
+            <button class="tab-btn" onclick="showTab('quiz')">🎮 AI Quiz</button>
+            <button class="tab-btn" onclick="showTab('missions')">✅ Missions</button>
+            <button class="tab-btn" onclick="showTab('games')">🎮 Games Hub</button>
+            <button class="tab-btn" onclick="showTab('admin')">🏫 Dashboard</button>
+        </div>
+
+        <!-- Predict Sustainability Tab -->
+        <div id="predict-tab" class="tab-content">
+            <div class="eco-card">
+                <h2 class="game-title">🎯 Predict Sustainability</h2>
+                <p class="game-subtitle">Explore sustainability scenarios and predict environmental impact</p>
+                
+                <div class="game-container">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">🌍 Carbon Footprint Challenge</h3>
+                    <p class="text-green-700 mb-6">Make eco-friendly choices to reduce your carbon footprint!</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-lg font-semibold text-green-800 mb-3">🚗 How will you travel today?</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="transport" value="-5" class="mr-3">
+                                            <span>Walk/Bike (-5 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="transport" value="-2" class="mr-3">
+                                            <span>Public Transport (-2 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="transport" value="0" class="mr-3">
+                                            <span>Electric Car (0 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="transport" value="10" class="mr-3">
+                                            <span>Gasoline Car (+10 CO₂)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-lg font-semibold text-green-800 mb-3">🍽️ What's for lunch?</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="food" value="-3" class="mr-3">
+                                            <span>Plant-Based Meal (-3 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="food" value="-2" class="mr-3">
+                                            <span>Local Produce (-2 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="food" value="2" class="mr-3">
+                                            <span>Mixed Diet (+2 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="food" value="8" class="mr-3">
+                                            <span>Imported Meat (+8 CO₂)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-lg font-semibold text-green-800 mb-3">💡 Energy usage today?</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="energy" value="-5" class="mr-3">
+                                            <span>Solar Power (-5 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="energy" value="-3" class="mr-3">
+                                            <span>Energy Saver Mode (-3 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="energy" value="1" class="mr-3">
+                                            <span>Normal Usage (+1 CO₂)</span>
+                                        </label>
+                                        <label class="flex items-center p-3 bg-white rounded-lg cursor-pointer hover:bg-green-50">
+                                            <input type="radio" name="energy" value="7" class="mr-3">
+                                            <span>High Consumption (+7 CO₂)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button class="btn-primary w-full" onclick="calculateCarbonImpact()">📊 Calculate My Impact</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="stat-card">
+                                <h3 class="text-xl font-bold text-green-800 mb-2">🌡️ Your Carbon Level</h3>
+                                <div class="text-4xl font-bold text-green-600" id="carbon-display">100</div>
+                                <div class="text-sm text-gray-600 mt-2">CO₂ Units</div>
+                            </div>
+
+                            <div class="stat-card">
+                                <h3 class="text-xl font-bold text-green-800 mb-2">🎯 Status</h3>
+                                <div class="text-2xl font-bold" id="status-text">👍 Good Job!</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="carbon-progress" style="width: 50%">50%</div>
+                                </div>
+                            </div>
+
+                            <button class="btn-secondary w-full" onclick="resetCarbonGame()">🔄 Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Hub Tab -->
+        <div id="games-tab" class="tab-content hidden">
+            <div class="eco-card">
+                <h2 class="game-title">🎮 Games Hub</h2>
+                <p class="game-subtitle">Play interactive games and learn about sustainability!</p>
+                
+                <!-- Eco-Runner Game -->
+                <div class="game-container">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">🏃 Eco-Runner</h3>
+                    <p class="text-green-700 mb-4">Use arrow keys to move and collect green eco-items while avoiding red obstacles!</p>
+                    
+                    <div class="instructions">
+                        <h4>🎮 How to Play:</h4>
+                        <ul>
+                            <li>⬆️⬇️ Use UP/DOWN arrow keys to move</li>
+                            <li>🟢 Collect green circles to reduce carbon (-10 CO₂)</li>
+                            <li>🔴 Avoid red squares (+20 CO₂)</li>
+                            <li>🎯 Goal: Reach 0 carbon score to win!</li>
+                        </ul>
+                    </div>
+                    
+                    <canvas id="eco-runner-canvas" class="game-canvas" width="800" height="400"></canvas>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn-primary" onclick="startEcoRunner()">▶️ Start Game</button>
+                        <button class="btn-secondary" onclick="pauseEcoRunner()">⏸️ Pause</button>
+                        <button class="btn-secondary" onclick="resetEcoRunner()">🔄 Reset</button>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="text-lg font-semibold text-green-800">🌡️ Carbon Score</div>
+                            <div class="text-3xl font-bold" id="runner-score">100</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-lg font-semibold text-green-800">🎯 Status</div>
+                            <div class="text-xl font-bold" id="runner-status">Ready to Play</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Renewable Energy Puzzle Game -->
+                <div class="game-container">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">🌍 Renewable Energy Puzzle</h3>
+                    <p class="text-green-700 mb-4">Click energy buttons then match them to colored tiles on the grid!</p>
+                    
+                    <div class="instructions">
+                        <h4>🎮 How to Play:</h4>
+                        <ul>
+                            <li>1️⃣ Click an energy source button (☀️ Solar / 💨 Wind / 💧 Hydro)</li>
+                            <li>2️⃣ Click on the matching colored tiles in the grid below</li>
+                            <li>🟡 Yellow = Solar | 🔵 Blue = Wind | 🔷 Cyan = Hydro</li>
+                            <li>✅ Correct match: -50 tons CO₂ emissions</li>
+                            <li>❌ Wrong match: +30 tons CO₂ emissions</li>
+                            <li>🏆 Goal: Reduce emissions to 0 for NET-ZERO!</li>
+                        </ul>
+                    </div>
+                    
+                    <canvas id="energy-puzzle-canvas" class="game-canvas" width="600" height="600"></canvas>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn-primary" onclick="startEnergyPuzzle()">▶️ Start Game</button>
+                        <button class="btn-secondary" onclick="resetEnergyPuzzle()">🔄 Reset</button>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="text-lg font-semibold text-green-800">💨 Emissions</div>
+                            <div class="text-3xl font-bold" id="emissions-score">500</div>
+                            <div class="text-sm text-gray-600">tons CO₂</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-lg font-semibold text-green-800">✅ Correct</div>
+                            <div class="text-3xl font-bold" id="correct-placements">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-lg font-semibold text-green-800">❌ Wrong</div>
+                            <div class="text-3xl font-bold" id="wrong-placements">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Tab -->
+        <div id="chat-tab" class="tab-content hidden">
+            <div class="eco-card">
+                <h2 class="game-title">🤖 EcoBot Mentor</h2>
+                <p class="game-subtitle">Chat with our AI assistant about nature and sustainability!</p>
+                
+                <div class="bg-green-50 p-4 rounded-lg mb-4">
+                    <p class="text-green-800">🌱 <strong>EcoBot:</strong> Hi! I'm EcoBot. I can generate quizzes, give tips, or help you save the planet!</p>
+                </div>
+                
+                <div id="chat-messages" class="space-y-3 mb-4 max-h-96 overflow-y-auto">
+                    <!-- Chat messages will appear here -->
+                </div>
+                
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Ask me anything about sustainability..." 
+                           class="flex-1 p-3 border-2 border-green-300 rounded-lg focus:border-green-500 focus:outline-none">
+                    <button class="btn-primary" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Quiz Tab -->
+        <div id="quiz-tab" class="tab-content hidden">
+            <div class="eco-card">
+                <h2 class="game-title">🎮 AI Eco-Challenge</h2>
+                <p class="game-subtitle">Answer AI-generated questions about the environment!</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <div id="quiz-content">
+                            <div class="mb-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <select id="quiz-topic" class="p-2 border rounded">
+                                    <option value="any">Topic: Any</option>
+                                </select>
+                                <select id="quiz-difficulty" class="p-2 border rounded">
+                                    <option value="any">Difficulty: Any</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                                <div class="flex gap-2">
+                                    <button class="btn-primary flex-1" onclick="generateQuizQuestion()">🌱 Generate New Question</button>
+                                    <button class="btn-secondary" onclick="startKBC()">🎯 Start KBC</button>
+                                </div>
+                            </div>
+                            <div id="quiz-card-area">
+                                <div class="text-center py-6">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4148/4148323.png" class="w-28 h-28 mx-auto mb-4">
+                                    <p class="text-gray-600">Use filters or press <strong>Start KBC</strong> for a KBC-style challenge!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stat-card">
+                            <h3 class="text-xl font-bold text-green-800 mb-2">🏆 Eco-Score</h3>
+                            <div class="text-4xl font-bold text-green-600" id="quiz-score">0</div>
+                        </div>
+                        <div id="kbc-ladder" class="mt-4 p-3 bg-white rounded shadow-sm"></div>
+                        <div id="kbc-lifelines" class="mt-4 flex gap-2">
+                            <button id="lifeline-5050" class="btn-secondary flex-1" onclick="use5050()">50:50</button>
+                            <button id="lifeline-skip" class="btn-secondary flex-1" onclick="useSkip()">Skip</button>
+                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/4148/4148323.png" alt="Eco Icon" class="mx-auto mt-4" width="150">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Missions Tab -->
+        <div id="missions-tab" class="tab-content hidden">
+            <div class="eco-card">
+                <h2 class="game-title">📝 Daily Green Missions</h2>
+                <p class="game-subtitle">Log your eco-friendly actions and earn points!</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-lg font-semibold text-green-800 mb-3">Select Mission Completed:</label>
+                        <select id="mission-select" class="w-full p-3 border-2 border-green-300 rounded-lg focus:border-green-500 focus:outline-none">
+                            <option value="Recycled Plastic|5">Recycled Plastic (5 points)</option>
+                            <option value="Planted a Tree|50">Planted a Tree (50 points)</option>
+                            <option value="Walked/Biked to School|20">Walked/Biked to School (20 points)</option>
+                            <option value="Saved Electricity|10">Saved Electricity (10 points)</option>
+                            <option value="Used Reusable Bag|5">Used Reusable Bag (5 points)</option>
+                            <option value="Composted Food|15">Composted Food (15 points)</option>
+                        </select>
+                        
+                        <div class="mt-4">
+                            <label class="block text-lg font-semibold text-green-800 mb-3">Points Value:</label>
+                            <div class="text-3xl font-bold text-green-600" id="mission-points">5</div>
+                        </div>
+                        
+                        <button class="btn-primary w-full mt-6" onclick="logMission()">✅ Log Mission</button>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-green-800 mb-4">📊 Your Impact</h3>
+                        <div class="space-y-3" id="mission-history">
+                            <p class="text-gray-600">No missions logged yet. Start your eco-journey!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard Tab -->
+        <div id="admin-tab" class="tab-content hidden">
+            <div class="eco-card">
+                <h2 class="game-title">🏫 School Sustainability Dashboard</h2>
+                <p class="game-subtitle">Track collective environmental impact</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 class="text-xl font-bold text-green-800 mb-2">🌍 Total Eco-Points</h3>
+                        <div class="text-4xl font-bold text-green-600" id="total-eco-points">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="text-xl font-bold text-green-800 mb-2">📈 Total Actions</h3>
+                        <div class="text-4xl font-bold text-green-600" id="total-actions">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="text-xl font-bold text-green-800 mb-2">🌳 Trees Planted</h3>
+                        <div class="text-4xl font-bold text-green-600" id="trees-planted">0</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-bold text-green-800 mb-4">📊 Impact Distribution</h4>
+                        <canvas id="impact-pie-chart" width="400" height="300"></canvas>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-bold text-green-800 mb-4">📈 Top Activities</h4>
+                        <canvas id="impact-bar-chart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // ============================================
+        // GLOBAL STATE MANAGEMENT
+        // ============================================
+        let currentTab = 'predict';
+        let carbonScore = 100;
+        let totalScore = 0;
+        let missionHistory = [];
+        let quizScore = 0;
+        let currentQuizQuestion = null;
+        
+        // Game states
+        let ecoRunnerGame = null;
+        let energyPuzzleGame = null;
+        let puzzleAnimationId = null;
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAllDisplays();
+            initializeCharts();
+        });
+        
+        // ============================================
+        // TAB SWITCHING
+        // ============================================
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            document.getElementById(tabName + '-tab').classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            currentTab = tabName;
+            
+            if (tabName === 'games') {
+                setTimeout(() => {
+                    if (!ecoRunnerGame) initializeEcoRunner();
+                    if (!energyPuzzleGame) initializeEnergyPuzzle();
+                }, 100);
+            }
+        }
+        
+        // ============================================
+        // CARBON FOOTPRINT CALCULATOR
+        // ============================================
+        function calculateCarbonImpact() {
+            const transport = document.querySelector('input[name="transport"]:checked');
+            const food = document.querySelector('input[name="food"]:checked');
+            const energy = document.querySelector('input[name="energy"]:checked');
+            
+            if (!transport || !food || !energy) {
+                alert('Please select all options before calculating!');
+                return;
+            }
+            
+            let totalChange = parseInt(transport.value) + parseInt(food.value) + parseInt(energy.value);
+            
+            carbonScore += totalChange;
+            carbonScore = Math.max(0, Math.min(200, carbonScore));
+            
+            updateCarbonDisplay();
+            
+            if (totalChange < 0) {
+                addPoints(Math.abs(totalChange) * 2);
+                showNotification('🎉 Amazing! You reduced carbon by ' + Math.abs(totalChange) + ' units!', 'success');
+            } else {
+                showNotification('⚠️ Your choices increased carbon by ' + totalChange + ' units. Try greener options!', 'warning');
+            }
+        }
+        
+        function updateCarbonDisplay() {
+            document.getElementById('carbon-display').textContent = carbonScore;
+            
+            const progressBar = document.getElementById('carbon-progress');
+            const percentage = Math.min(100, (carbonScore / 200) * 100);
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = carbonScore + ' CO₂';
+            
+            const statusText = document.getElementById('status-text');
+            if (carbonScore <= 50) {
+                statusText.textContent = '🌟 Eco Hero!';
+                statusText.className = 'text-2xl font-bold text-green-600';
+                progressBar.style.background = 'linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%)';
+            } else if (carbonScore <= 100) {
+                statusText.textContent = '👍 Good Job!';
+                statusText.className = 'text-2xl font-bold text-yellow-600';
+                progressBar.style.background = 'linear-gradient(90deg, #FFC107 0%, #FFD54F 100%)';
+            } else {
+                statusText.textContent = '🔥 Need Improvement';
+                statusText.className = 'text-2xl font-bold text-red-600';
+                progressBar.style.background = 'linear-gradient(90deg, #F44336 0%, #EF5350 100%)';
+            }
+        }
+        
+        function resetCarbonGame() {
+            carbonScore = 100;
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            updateCarbonDisplay();
+            showNotification('🔄 Carbon game reset!', 'info');
+        }
+        
+        // ============================================
+        // MISSION TRACKER
+        // ============================================
+        function updateMissionPoints() {
+            const select = document.getElementById('mission-select');
+            const points = select.value.split('|')[1];
+            document.getElementById('mission-points').textContent = points;
+        }
+        
+        document.getElementById('mission-select').addEventListener('change', updateMissionPoints);
+        
+        function logMission() {
+            const select = document.getElementById('mission-select');
+            const [action, points] = select.value.split('|');
+            const pointsNum = parseInt(points);
+            
+            missionHistory.unshift({
+                action: action,
+                points: pointsNum,
+                date: new Date().toLocaleDateString()
+            });
+            
+            addPoints(pointsNum);
+            updateMissionHistory();
+            showNotification(`✅ Mission '${action}' logged! +${pointsNum} points`, 'success');
+        }
+        
+        function updateMissionHistory() {
+            const historyDiv = document.getElementById('mission-history');
+            if (missionHistory.length === 0) {
+                historyDiv.innerHTML = '<p class="text-gray-600">No missions logged yet. Start your eco-journey!</p>';
+                return;
+            }
+            
+            historyDiv.innerHTML = missionHistory.slice(0, 5).map(mission => `
+                <div class="bg-green-50 p-3 rounded-lg border-l-4 border-green-500">
+                    <div class="font-semibold text-green-800">${mission.action}</div>
+                    <div class="text-sm text-green-600">+${mission.points} points • ${mission.date}</div>
+                </div>
+            `).join('');
+        }
+        
+        // ============================================
+        // QUIZ SYSTEM (uses local JSON bank and shuffled pool)
+        // ============================================
+        let QUESTIONS = null; // loaded from assets/questions_sustainability.json
+        const EMBEDDED_FALLBACK_QUESTIONS = [
+            { q: "What do the '3Rs' stand for in waste management?", options: ["Reduce, Reuse, Recycle", "Restore, Return, Refine", "Reuse, Repair, Replace", "Reduce, Refuse, Recycle"], ans: 0, exp: "Reduce waste generation, reuse items, and recycle materials to minimize landfill." },
+            { q: "Which of the following is a renewable energy source?", options: ["Coal", "Oil", "Solar", "Natural Gas"], ans: 2, exp: "Solar power comes from sunlight and is renewable and low-carbon." },
+            { q: "What greenhouse gas is most associated with human activities?", options: ["Oxygen", "Methane (CH₄)", "Carbon Dioxide (CO₂)", "Nitrogen"], ans: 2, exp: "CO₂ from fossil fuels is the primary greenhouse gas driving climate change." }
+        ];
+        let _questionPool = [];
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+
+        function _refillPool() {
+            if (!QUESTIONS || !Array.isArray(QUESTIONS)) {
+                _questionPool = [];
+                return;
+            }
+            _questionPool = QUESTIONS.slice();
+            shuffleArray(_questionPool);
+        }
+
+        async function initQuizQuestions() {
+            try {
+                const resp = await fetch('assets/questions_sustainability.json');
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                const data = await resp.json();
+                // Normalize (ensure ans is numeric index) if data uses letters, convert
+                data.forEach(q => {
+                    if (typeof q.ans === 'string') {
+                        // assume letter e.g. 'A' or 'C'
+                        q.ans = q.ans.toUpperCase().charCodeAt(0) - 65;
+                    }
+                });
+                QUESTIONS = data;
+            } catch (e) {
+                console.warn('Quiz: failed to load JSON, using fallback', e);
+                QUESTIONS = EMBEDDED_FALLBACK_QUESTIONS;
+            }
+            _refillPool();
+        }
+
+        // initialize questions on load
+        initQuizQuestions().then(() => {
+            populateFilterDropdowns();
+            renderPrizeLadder();
+        });
+        
+        function populateFilterDropdowns() {
+            const topicSelect = document.getElementById('quiz-topic');
+            const diffSelect = document.getElementById('quiz-difficulty');
+
+            // collect topics
+            const topics = new Set();
+            (QUESTIONS || []).forEach(q => {
+                if (!q.topic) q.topic = inferTopic(q.q);
+                if (!q.difficulty) q.difficulty = inferDifficulty(q.q);
+                topics.add(q.topic);
+            });
+
+            // populate topic select
+            topics.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+                topicSelect.appendChild(opt);
+            });
+        }
+
+        function inferTopic(text) {
+            const s = text.toLowerCase();
+            if (s.includes('energy') || s.includes('renewable') || s.includes('solar') || s.includes('wind') || s.includes('battery')) return 'energy';
+            if (s.includes('waste') || s.includes('recycle') || s.includes("3r") || s.includes('plastic')) return 'waste';
+            if (s.includes('water') || s.includes('wetland') || s.includes('eutrophication')) return 'water';
+            if (s.includes('biodiversity') || s.includes('species') || s.includes('forest') || s.includes('peat')) return 'biodiversity';
+            if (s.includes('transport') || s.includes('vehicle') || s.includes('transport')) return 'transport';
+            if (s.includes('agri') || s.includes('soil') || s.includes('crop') || s.includes('farming')) return 'agriculture';
+            if (s.includes('policy') || s.includes('agreement') || s.includes('sdg') || s.includes('paris')) return 'policy';
+            return 'general';
+        }
+
+        function inferDifficulty(text) {
+            const s = text.toLowerCase();
+            const hardHints = ['environmental impact assessment','eia','life cycle','lca','net-zero','pumped','peat','industrial','protocol','assessment'];
+            if (hardHints.some(h => s.includes(h))) return 'hard';
+            if (s.length < 80 || s.includes('what is') || s.includes("which is")) return 'easy';
+            return 'medium';
+        }
+
+        function getFilteredPool() {
+            const topic = document.getElementById('quiz-topic').value;
+            const diff = document.getElementById('quiz-difficulty').value;
+
+            return (QUESTIONS || []).filter(q => {
+                let ok = true;
+                if (topic && topic !== 'any') ok = ok && (q.topic === topic);
+                if (diff && diff !== 'any') ok = ok && (q.difficulty === diff);
+                return ok;
+            });
+        }
+
+        function generateQuizQuestion() {
+            // If questions still loading, show message
+            if ((!QUESTIONS || !QUESTIONS.length) && _questionPool.length === 0) {
+                document.getElementById('quiz-card-area').innerHTML = `<div class="text-center py-12">Loading questions…</div>`;
+                return;
+            }
+
+            const filtered = getFilteredPool();
+            if (!filtered || filtered.length === 0) {
+                document.getElementById('quiz-card-area').innerHTML = `<div class="text-center py-12">No questions found for selected filters.</div>`;
+                return;
+            }
+
+            // pick random from filtered
+            const q = filtered[Math.floor(Math.random() * filtered.length)];
+            currentQuizQuestion = q;
+        }
+
+        // KBC / question display supports lifelines when kbcMode==true
+        function displayQuizQuestion() {
+            if (!currentQuizQuestion) return;
+
+            const quizCard = document.getElementById('quiz-card-area');
+            const isKBC = window.kbcMode === true;
+
+            let lifelineHtml = '';
+            if (isKBC) {
+                lifelineHtml = `
+                    <div class="flex gap-2 mb-3">
+                        <button id="ui-5050" class="btn-secondary" onclick="use5050()">50:50</button>
+                        <button id="ui-skip" class="btn-secondary" onclick="useSkip()">Skip</button>
+                    </div>
+                `;
+            }
+
+            quizCard.innerHTML = `
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">${currentQuizQuestion.q}</h3>
+                    ${lifelineHtml}
+                    <div class="space-y-3" id="quiz-options-area">
+                        ${currentQuizQuestion.options.map((option, index) => `
+                            <label id="opt-${index}" class="flex items-center p-3 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100">
+                                <input type="radio" name="quiz-answer" value="${index}" class="mr-3">
+                                <span>${String.fromCharCode(65 + index)}) ${option}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="mt-6 flex gap-3">
+                        <button class="btn-primary flex-1" onclick="submitQuizAnswer()">Submit Answer</button>
+                        ${isKBC ? '<button class="btn-secondary" onclick="walkAway()">🏃 Walk Away</button>' : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function submitQuizAnswer() {
+            const selected = document.querySelector('input[name="quiz-answer"]:checked');
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+
+            const selectedIdx = parseInt(selected.value, 10);
+            const isKBC = window.kbcMode === true;
+
+            if (!isKBC) {
+                if (selectedIdx === currentQuizQuestion.ans) {
+                    // Correct answer: earn 5 eco points
+                    addPoints(5);
+                    showNotification('🎉 Correct! +5 Eco Points\n' + currentQuizQuestion.exp, 'success');
+                    setTimeout(() => {
+                        document.getElementById('quiz-card-area').innerHTML = `
+                            <button class="btn-primary w-full" onclick="generateQuizQuestion()">🌱 Generate New Question</button>
+                        `;
+                    }, 1200);
+                } else {
+                    // Wrong answer: deduct 2.5 eco points
+                    addPoints(-2.5);
+                    showNotification('❌ Wrong! -2.5 Eco Points\n' + currentQuizQuestion.exp, 'error');
+                    setTimeout(() => {
+                        document.getElementById('quiz-card-area').innerHTML = `
+                            <button class="btn-primary w-full" onclick="generateQuizQuestion()">🌱 Generate New Question</button>
+                        `;
+                    }, 1400);
+                }
+                currentQuizQuestion = null;
+                return;
+            }
+
+            // KBC flow
+            if (selectedIdx === currentQuizQuestion.ans) {
+                // correct answer: earn 5 eco points
+                addPoints(5);
+                window.kbcLevel = (window.kbcLevel || 1) + 1;
+                renderPrizeLadder();
+                if (window.kbcLevel > window.kbcMaxLevel) {
+                    // won KBC
+                    const prize = window.kbcPrizeLadder[window.kbcMaxLevel - 1];
+                    showNotification(`🏆 Congratulations! You won ₹${prize}! +5 Eco Points`, 'success');
+                    endKBC(true);
+                    return;
+                }
+                showNotification('✅ Correct! +5 Eco Points | Moving to next level.', 'success');
+                setTimeout(() => nextKBCQuestion(), 1200);
+            } else {
+                // wrong answer: deduct 2.5 eco points
+                addPoints(-2.5);
+                const guaranteed = getGuaranteedPrize();
+                showNotification(`❌ Wrong! -2.5 Eco Points | You leave with ₹${guaranteed}`, 'error');
+                endKBC(false);
+            }
+        }
+
+        // KBC helpers
+        function startKBC() {
+            if (!QUESTIONS || QUESTIONS.length === 0) {
+                alert('Questions are still loading. Try again in a moment.');
+                return;
+            }
+            window.kbcMode = true;
+            window.kbcLevel = 1;
+            window.kbcMaxLevel = 10;
+            window.kbcPrizeLadder = [1000,2000,3000,5000,10000,20000,40000,100000,300000,1000000];
+            window.kbcLifelines = { '5050': false, 'skip': false };
+            renderPrizeLadder();
+            nextKBCQuestion();
+        }
+
+        function endKBC(won) {
+            window.kbcMode = false;
+            // reset lifelines
+            window.kbcLifelines = { '5050': false, 'skip': false };
+            renderPrizeLadder();
+            const content = document.getElementById('quiz-card-area');
+            let earned = 0;
+            if (won) earned = window.kbcPrizeLadder[window.kbcMaxLevel - 1];
+            else earned = getGuaranteedPrize();
+            content.innerHTML = `
+                <div class="text-center py-8">
+                    <h3 class="text-xl font-bold">Game Over</h3>
+                    <p class="mt-4">You earned ₹${earned}</p>
+                    <button class="btn-primary mt-6" onclick="startKBC()">Play Again</button>
+                    <button class="btn-secondary mt-2" onclick="generateQuizQuestion()">Back to Quiz</button>
+                </div>
+            `;
+        }
+
+        function getGuaranteedPrize() {
+            // safe levels at 5 and 8 (1-based)
+            const lvl = (window.kbcLevel || 1) - 1; // last completed
+            if (lvl >= 8) return window.kbcPrizeLadder[7];
+            if (lvl >= 4) return window.kbcPrizeLadder[4];
+            return 0;
+        }
+
+        function nextKBCQuestion() {
+            // pick a question matching difficulty based on level
+            const level = window.kbcLevel || 1;
+            let diff = 'easy';
+            if (level <= 4) diff = 'easy';
+            else if (level <= 7) diff = 'medium';
+            else diff = 'hard';
+
+            const topic = document.getElementById('quiz-topic').value;
+            const candidates = (QUESTIONS || []).filter(q => (q.difficulty === diff) && (topic === 'any' || q.topic === topic));
+            if (!candidates || candidates.length === 0) {
+                // fallback to any difficulty
+                const alt = (QUESTIONS || []).filter(q => (topic === 'any' || q.topic === topic));
+                if (!alt || alt.length === 0) {
+                    document.getElementById('quiz-card-area').innerHTML = `<div class="text-center py-12">No questions available for KBC with current filters.</div>`;
+                    return;
+                }
+                currentQuizQuestion = alt[Math.floor(Math.random() * alt.length)];
+            } else {
+                currentQuizQuestion = candidates[Math.floor(Math.random() * candidates.length)];
+            }
+            // reset UI lifeline buttons
+            document.getElementById('lifeline-5050').disabled = window.kbcLifelines['5050'];
+            document.getElementById('lifeline-skip').disabled = window.kbcLifelines['skip'];
+            displayQuizQuestion();
+        }
+
+        function renderPrizeLadder() {
+            const container = document.getElementById('kbc-ladder');
+            const ladder = window.kbcPrizeLadder || [1000,2000,3000,5000,10000,20000,40000,100000,300000,1000000];
+            const cur = window.kbcLevel || 1;
+            container.innerHTML = `<h4 class="font-semibold mb-2">KBC Prize Ladder</h4>` + ladder.map((amt, i) => `
+                <div class="p-2 rounded ${i+1 === cur ? 'bg-green-100 font-bold' : 'bg-white'}">Level ${i+1}: ₹${amt}</div>
+            `).reverse().join('');
+        }
+
+        function use5050() {
+            if (!window.kbcMode || window.kbcLifelines['5050']) return;
+            window.kbcLifelines['5050'] = true;
+            // hide two wrong options
+            const correct = currentQuizQuestion.ans;
+            const wrongIdxs = currentQuizQuestion.options.map((o, i) => i).filter(i => i !== correct);
+            shuffleArray(wrongIdxs);
+            const toHide = wrongIdxs.slice(0, 2);
+            toHide.forEach(i => {
+                const el = document.getElementById('opt-' + i);
+                if (el) el.style.visibility = 'hidden';
+            });
+            document.getElementById('lifeline-5050').disabled = true;
+            const uiBtn = document.getElementById('ui-5050'); if (uiBtn) uiBtn.disabled = true;
+        }
+
+        function useSkip() {
+            if (!window.kbcMode || window.kbcLifelines['skip']) return;
+            window.kbcLifelines['skip'] = true;
+            document.getElementById('lifeline-skip').disabled = true;
+            const uiBtn = document.getElementById('ui-skip'); if (uiBtn) uiBtn.disabled = true;
+            // skip current question but no prize progress
+            showNotification('⏭ Skipped question, moving to next.', 'info');
+            nextKBCQuestion();
+        }
+
+        function walkAway() {
+            const prize = getGuaranteedPrize();
+            showNotification(`🏃 You walked away with ₹${prize}`, 'info');
+            endKBC(true);
+        }
+        
+        // ============================================
+        // CHAT SYSTEM
+        // ============================================
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            addChatMessage(message, 'user');
+            input.value = '';
+            
+            setTimeout(() => {
+                const responses = [
+                    "🌿 That's a great question! Did you know that recycling one aluminum can saves enough energy to run a TV for 3 hours?",
+                    "🌍 Excellent point! Every small action counts. Try using reusable bags to reduce plastic waste.",
+                    "🌱 I love your eco-enthusiasm! Planting trees is one of the best ways to combat climate change.",
+                    "💚 Great thinking! Remember: Reduce, Reuse, Recycle - in that order!",
+                    "🌳 You're on the right track! Walking or biking instead of driving can reduce your carbon footprint significantly."
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addChatMessage(randomResponse, 'assistant');
+            }, 1000);
+        }
+        
+        function addChatMessage(message, role) {
+            const messagesDiv = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `p-3 rounded-lg ${role === 'user' ? 'bg-blue-100 ml-8' : 'bg-green-100 mr-8'}`;
+            messageDiv.innerHTML = `<strong>${role === 'user' ? 'You' : '🌿 EcoBot'}:</strong> ${message}`;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+        
+        // ============================================
+        // ECO-RUNNER GAME
+        // ============================================
+        function initializeEcoRunner() {
+            const canvas = document.getElementById('eco-runner-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            ecoRunnerGame = {
+                canvas: canvas,
+                ctx: ctx,
+                running: false,
+                player: { x: 50, y: 200, width: 50, height: 50 },
+                speed: 5,
+                score: 100,
+                items: [],
+                obstacles: [],
+                keys: {},
+                animationId: null
+            };
+            
+            document.addEventListener('keydown', (e) => {
+                if (ecoRunnerGame) ecoRunnerGame.keys[e.key] = true;
+            });
+            
+            document.addEventListener('keyup', (e) => {
+                if (ecoRunnerGame) ecoRunnerGame.keys[e.key] = false;
+            });
+            
+            drawEcoRunner();
+        }
+        
+        function startEcoRunner() {
+            if (!ecoRunnerGame) initializeEcoRunner();
+            ecoRunnerGame.running = true;
+            ecoRunnerGame.score = 100;
+            ecoRunnerGame.items = [];
+            ecoRunnerGame.obstacles = [];
+            ecoRunnerGame.player.y = 200;
+            gameLoop();
+        }
+        
+        function pauseEcoRunner() {
+            if (ecoRunnerGame) {
+                ecoRunnerGame.running = false;
+                if (ecoRunnerGame.animationId) {
+                    cancelAnimationFrame(ecoRunnerGame.animationId);
+                }
+                updateEcoRunnerDisplay();
+            }
+        }
+        
+        function resetEcoRunner() {
+            pauseEcoRunner();
+            if (ecoRunnerGame) {
+                ecoRunnerGame.score = 100;
+                ecoRunnerGame.player.y = 200;
+                ecoRunnerGame.items = [];
+                ecoRunnerGame.obstacles = [];
+                updateEcoRunnerDisplay();
+                drawEcoRunner();
+            }
+        }
+        
+        function gameLoop() {
+            if (!ecoRunnerGame || !ecoRunnerGame.running) return;
+            
+            // Player movement
+            if (ecoRunnerGame.keys['ArrowUp'] && ecoRunnerGame.player.y > 0) {
+                ecoRunnerGame.player.y -= ecoRunnerGame.speed;
+            }
+            if (ecoRunnerGame.keys['ArrowDown'] && ecoRunnerGame.player.y < 350) {
+                ecoRunnerGame.player.y += ecoRunnerGame.speed;
+            }
+            
+            // Spawn items and obstacles
+            if (Math.random() < 0.02) {
+                ecoRunnerGame.items.push({ x: 800, y: Math.random() * 370, width: 30, height: 30 });
+            }
+            if (Math.random() < 0.01) {
+                ecoRunnerGame.obstacles.push({ x: 800, y: Math.random() * 360, width: 40, height: 40 });
+            }
+            
+            // Move and filter items
+            ecoRunnerGame.items.forEach(item => item.x -= 5);
+            ecoRunnerGame.items = ecoRunnerGame.items.filter(item => {
+                if (item.x < -30) return false;
+                if (checkCollision(ecoRunnerGame.player, item)) {
+                    ecoRunnerGame.score = Math.max(0, ecoRunnerGame.score - 10);
+                    addPoints(5);
+                    return false;
+                }
+                return true;
+            });
+            
+            // Move and filter obstacles
+            ecoRunnerGame.obstacles.forEach(obs => obs.x -= 4);
+            ecoRunnerGame.obstacles = ecoRunnerGame.obstacles.filter(obs => {
+                if (obs.x < -40) return false;
+                if (checkCollision(ecoRunnerGame.player, obs)) {
+                    ecoRunnerGame.score += 20;
+                    return false;
+                }
+                return true;
+            });
+            
+            // Check win condition
+            if (ecoRunnerGame.score <= 0) {
+                ecoRunnerGame.running = false;
+                showNotification('🏆 YOU SAVED THE PLANET! 🎊', 'success');
+                addPoints(100);
+                updateEcoRunnerDisplay();
+                drawEcoRunner();
+                return;
+            }
+            
+            updateEcoRunnerDisplay();
+            drawEcoRunner();
+            ecoRunnerGame.animationId = requestAnimationFrame(gameLoop);
+        }
+        
+        function checkCollision(rect1, rect2) {
+            return rect1.x < rect2.x + rect2.width &&
+                   rect1.x + rect1.width > rect2.x &&
+                   rect1.y < rect2.y + rect2.height &&
+                   rect1.y + rect1.height > rect2.y;
+        }
+        
+        function drawEcoRunner() {
+            if (!ecoRunnerGame) return;
+            
+            const ctx = ecoRunnerGame.ctx;
+            ctx.clearRect(0, 0, 800, 400);
+            
+            // Background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 800, 400);
+            
+            // Player
+            ctx.fillStyle = '#2196F3';
+            ctx.fillRect(ecoRunnerGame.player.x, ecoRunnerGame.player.y, 
+                        ecoRunnerGame.player.width, ecoRunnerGame.player.height);
+            
+            // Items (green circles)
+            ctx.fillStyle = '#4CAF50';
+            ecoRunnerGame.items.forEach(item => {
+                ctx.beginPath();
+                ctx.arc(item.x + 15, item.y + 15, 15, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Obstacles (red squares)
+            ctx.fillStyle = '#F44336';
+            ecoRunnerGame.obstacles.forEach(obs => {
+                ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+            });
+            
+            // Score display
+            ctx.fillStyle = '#000000';
+            ctx.font = 'bold 24px Arial';
+            ctx.fillText(`Carbon Score: ${ecoRunnerGame.score}`, 10, 30);
+            
+            // Win message
+            if (ecoRunnerGame.score <= 0) {
+                ctx.fillStyle = 'rgba(76, 175, 80, 0.9)';
+                ctx.fillRect(0, 0, 800, 400);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = 'bold 36px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('🎊 YOU SAVED THE PLANET! 🎊', 400, 200);
+            }
+        }
+        
+        function updateEcoRunnerDisplay() {
+            if (!ecoRunnerGame) return;
+            
+            document.getElementById('runner-score').textContent = ecoRunnerGame.score;
+            const status = ecoRunnerGame.score <= 0 ? '🏆 WINNER!' : 
+                          ecoRunnerGame.running ? '🏃 Running...' : '⏸️ Paused';
+            document.getElementById('runner-status').textContent = status;
+        }
+        
+        // ============================================
+        // RENEWABLE ENERGY PUZZLE GAME - FULLY FIXED
+        // ============================================
+        function initializeEnergyPuzzle() {
+            const canvas = document.getElementById('energy-puzzle-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            energyPuzzleGame = {
+                canvas: canvas,
+                ctx: ctx,
+                grid: [
+                    [0, 1, 0, 1, 0],
+                    [2, 0, 2, 0, 2],
+                    [0, 3, 0, 3, 0],
+                    [2, 0, 2, 0, 2],
+                    [0, 1, 0, 1, 0]
+                ],
+                selected: null,
+                emissions: 500,
+                correct: 0,
+                wrong: 0,
+                cellSize: 80,
+                gridOffset: { x: 100, y: 150 },
+                particles: [],
+                gameOver: false
+            };
+            
+            canvas.addEventListener('click', handlePuzzleClick);
+            drawEnergyPuzzle();
+            startPuzzleAnimation();
+        }
+        
+        function handlePuzzleClick(event) {
+            if (!energyPuzzleGame || energyPuzzleGame.gameOver) return;
+            
+            const rect = energyPuzzleGame.canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            // Check button clicks (energy type selection)
+            const buttons = [
+                { x: 50, y: 70, width: 140, height: 60, value: 1 },
+                { x: 220, y: 70, width: 140, height: 60, value: 2 },
+                { x: 390, y: 70, width: 140, height: 60, value: 3 }
+            ];
+            
+            for (let btn of buttons) {
+                if (x >= btn.x && x <= btn.x + btn.width && 
+                    y >= btn.y && y <= btn.y + btn.height) {
+                    energyPuzzleGame.selected = btn.value;
+                    console.log('Selected energy type:', btn.value);
+                    return;
+                }
+            }
+            
+            // Check grid clicks
+            const gridX = Math.floor((x - energyPuzzleGame.gridOffset.x) / energyPuzzleGame.cellSize);
+            const gridY = Math.floor((y - energyPuzzleGame.gridOffset.y) / energyPuzzleGame.cellSize);
+            
+            console.log('Clicked grid:', gridX, gridY);
+            
+            if (gridX >= 0 && gridX < 5 && gridY >= 0 && gridY < 5 && energyPuzzleGame.selected !== null) {
+                const cellValue = energyPuzzleGame.grid[gridY][gridX];
+                console.log('Cell value:', cellValue, 'Selected:', energyPuzzleGame.selected);
+                
+                if (cellValue === energyPuzzleGame.selected) {
+                    // CORRECT!
+                    energyPuzzleGame.emissions = Math.max(0, energyPuzzleGame.emissions - 50);
+                    energyPuzzleGame.correct++;
+                    energyPuzzleGame.grid[gridY][gridX] = 0;
+                    addPoints(10);
+                    showNotification('✅ Correct! -50 tons CO₂', 'success');
+                    
+                    // Add green particles
+                    const particleX = energyPuzzleGame.gridOffset.x + gridX * energyPuzzleGame.cellSize + energyPuzzleGame.cellSize / 2;
+                    const particleY = energyPuzzleGame.gridOffset.y + gridY * energyPuzzleGame.cellSize + energyPuzzleGame.cellSize / 2;
+                    for (let i = 0; i < 15; i++) {
+                        energyPuzzleGame.particles.push({
+                            x: particleX,
+                            y: particleY,
+                            vx: (Math.random() - 0.5) * 4,
+                            vy: (Math.random() - 0.5) * 4,
+                            life: 30,
+                            color: '#4CAF50'
+                        });
+                    }
+                    
+                } else if (cellValue !== 0) {
+                    // WRONG!
+                    energyPuzzleGame.emissions += 30;
+                    energyPuzzleGame.wrong++;
+                    showNotification('❌ Wrong! +30 tons CO₂', 'error');
+                    
+                    // Add red particles
+                    const particleX = energyPuzzleGame.gridOffset.x + gridX * energyPuzzleGame.cellSize + energyPuzzleGame.cellSize / 2;
+                    const particleY = energyPuzzleGame.gridOffset.y + gridY * energyPuzzleGame.cellSize + energyPuzzleGame.cellSize / 2;
+                    for (let i = 0; i < 8; i++) {
+                        energyPuzzleGame.particles.push({
+                            x: particleX,
+                            y: particleY,
+                            vx: (Math.random() - 0.5) * 3,
+                            vy: (Math.random() - 0.5) * 3,
+                            life: 20,
+                            color: '#F44336'
+                        });
+                    }
+                }
+                
+                updatePuzzleDisplay();
+                
+                // Check win condition
+                if (energyPuzzleGame.emissions <= 0) {
+                    energyPuzzleGame.gameOver = true;
+                    showNotification('🏆 NET-ZERO ACHIEVED! 🎉', 'success');
+                    addPoints(200);
+                }
+            }
+        }
+        
+        function startPuzzleAnimation() {
+            function animate() {
+                if (energyPuzzleGame) {
+                    // Update particles
+                    energyPuzzleGame.particles = energyPuzzleGame.particles.filter(p => {
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.life--;
+                        return p.life > 0;
+                    });
+                    
+                    drawEnergyPuzzle();
+                }
+                puzzleAnimationId = requestAnimationFrame(animate);
+            }
+            animate();
+        }
+        
+        function drawEnergyPuzzle() {
+            if (!energyPuzzleGame) return;
+            
+            const ctx = energyPuzzleGame.ctx;
+            ctx.clearRect(0, 0, 600, 600);
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, 600);
+            gradient.addColorStop(0, '#87CEEB');
+            gradient.addColorStop(1, '#E0F7FA');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 600, 600);
+            
+            // Title
+            ctx.font = 'bold 32px Arial';
+            ctx.fillStyle = '#2e7d32';
+            ctx.textAlign = 'center';
+            ctx.fillText('🌍 Save The Planet!', 300, 45);
+            
+            // Energy type buttons
+            const buttons = [
+                { x: 50, y: 70, width: 140, height: 60, color: '#FFC107', text: '☀️ SOLAR', value: 1 },
+                { x: 220, y: 70, width: 140, height: 60, color: '#2196F3', text: '💨 WIND', value: 2 },
+                { x: 390, y: 70, width: 140, height: 60, color: '#00BCD4', text: '💧 HYDRO', value: 3 }
+            ];
+            
+            buttons.forEach(btn => {
+                // Button background
+                if (energyPuzzleGame.selected === btn.value) {
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(btn.x - 5, btn.y - 5, btn.width + 10, btn.height + 10);
+                }
+                
+                ctx.fillStyle = btn.color;
+                ctx.fillRect(btn.x, btn.y, btn.width, btn.height);
+                
+                // Button border
+                ctx.strokeStyle = energyPuzzleGame.selected === btn.value ? '#000000' : '#333333';
+                ctx.lineWidth = energyPuzzleGame.selected === btn.value ? 4 : 3;
+                ctx.strokeRect(btn.x, btn.y, btn.width, btn.height);
+                
+                // Button text
+                ctx.font = 'bold 20px Arial';
+                ctx.fillStyle = '#FFFFFF';
+                ctx.textAlign = 'center';
+                ctx.fillText(btn.text, btn.x + btn.width/2, btn.y + btn.height/2 + 7);
+            });
+            
+            // Instructions
+            ctx.font = '18px Arial';
+            ctx.fillStyle = '#333333';
+            ctx.textAlign = 'center';
+            if (energyPuzzleGame.selected === null) {
+                ctx.fillText('👆 Click an energy source button above!', 300, 140);
+            } else {
+                ctx.fillText('👇 Click matching colored tiles below!', 300, 140);
+            }
+            
+            // Grid
+            for (let row = 0; row < 5; row++) {
+                for (let col = 0; col < 5; col++) {
+                    const x = energyPuzzleGame.gridOffset.x + col * energyPuzzleGame.cellSize;
+                    const y = energyPuzzleGame.gridOffset.y + row * energyPuzzleGame.cellSize;
+                    const value = energyPuzzleGame.grid[row][col];
+                    
+                    // Cell background
+                    const colors = ['#f0f0f0', '#FFEB3B', '#2196F3', '#00BCD4'];
+                    ctx.fillStyle = colors[value];
+                    ctx.fillRect(x, y, energyPuzzleGame.cellSize, energyPuzzleGame.cellSize);
+                    
+                    // Cell border
+                    ctx.strokeStyle = '#555555';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(x, y, energyPuzzleGame.cellSize, energyPuzzleGame.cellSize);
+                    
+                    // Cell icon
+                    if (value > 0) {
+                        const icons = ['', '☀️', '💨', '💧'];
+                        ctx.font = '32px Arial';
+                        ctx.fillStyle = '#FFFFFF';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(icons[value], x + energyPuzzleGame.cellSize/2, y + energyPuzzleGame.cellSize/2 + 10);
+                    }
+                }
+            }
+            
+            // Draw particles
+            energyPuzzleGame.particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life / 30;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            });
+            
+            // Stats bar
+            const statsY = 550;
+            ctx.fillStyle = '#e0e0e0';
+            ctx.fillRect(50, statsY, 500, 30);
+            
+            const emissionsWidth = Math.max(0, (energyPuzzleGame.emissions / 500) * 500);
+            const barColor = energyPuzzleGame.emissions <= 100 ? '#4CAF50' : 
+                            energyPuzzleGame.emissions <= 300 ? '#FFA500' : '#F44336';
+            ctx.fillStyle = barColor;
+            ctx.fillRect(50, statsY, emissionsWidth, 30);
+            
+            ctx.font = 'bold 18px Arial';
+            ctx.fillStyle = '#000000';
+            ctx.textAlign = 'center';
+            ctx.fillText(`💨 Emissions: ${energyPuzzleGame.emissions} tons CO₂`, 300, statsY + 20);
+            
+            // Win overlay
+            if (energyPuzzleGame.gameOver) {
+                ctx.fillStyle = 'rgba(76, 175, 80, 0.95)';
+                ctx.fillRect(0, 0, 600, 600);
+                
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = 'bold 40px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('🎉 NET-ZERO ACHIEVED! 🎉', 300, 280);
+                
+                ctx.font = 'bold 24px Arial';
+                const finalScore = energyPuzzleGame.correct * 100 - energyPuzzleGame.wrong * 30;
+                ctx.fillText(`Score: ${finalScore} points`, 300, 330);
+                ctx.fillText(`Perfect Matches: ${energyPuzzleGame.correct}`, 300, 370);
+            }
+        }
+        
+        function startEnergyPuzzle() {
+            if (!energyPuzzleGame) {
+                initializeEnergyPuzzle();
+            } else {
+                energyPuzzleGame.emissions = 500;
+                energyPuzzleGame.correct = 0;
+                energyPuzzleGame.wrong = 0;
+                energyPuzzleGame.selected = null;
+                energyPuzzleGame.particles = [];
+                energyPuzzleGame.gameOver = false;
+                
+                energyPuzzleGame.grid = [
+                    [0, 1, 0, 1, 0],
+                    [2, 0, 2, 0, 2],
+                    [0, 3, 0, 3, 0],
+                    [2, 0, 2, 0, 2],
+                    [0, 1, 0, 1, 0]
+                ];
+                
+                updatePuzzleDisplay();
+                drawEnergyPuzzle();
+            }
+        }
+        
+        function resetEnergyPuzzle() {
+            startEnergyPuzzle();
+            showNotification('🔄 Energy puzzle reset!', 'info');
+        }
+        
+        function updatePuzzleDisplay() {
+            if (!energyPuzzleGame) return;
+            
+            document.getElementById('emissions-score').textContent = energyPuzzleGame.emissions;
+            document.getElementById('correct-placements').textContent = energyPuzzleGame.correct;
+            document.getElementById('wrong-placements').textContent = energyPuzzleGame.wrong;
+        }
+        
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        function addPoints(points) {
+            totalScore += points;
+            updateAllDisplays();
+        }
+        
+        function updateAllDisplays() {
+            document.getElementById('total-score').textContent = totalScore;
+            updateCarbonDisplay();
+            updateMissionHistory();
+            updateAdminDashboard();
+        }
+        
+        function updateAdminDashboard() {
+            document.getElementById('total-eco-points').textContent = totalScore;
+            document.getElementById('total-actions').textContent = missionHistory.length;
+            document.getElementById('trees-planted').textContent = 
+                missionHistory.filter(m => m.action === 'Planted a Tree').length;
+        }
+        
+        function initializeCharts() {
+            const pieCtx = document.getElementById('impact-pie-chart').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Recycling', 'Transport', 'Energy', 'Trees'],
+                    datasets: [{
+                        data: [30, 25, 25, 20],
+                        backgroundColor: ['#4CAF50', '#8BC34A', '#CDDC39', '#FFC107']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+            
+            const barCtx = document.getElementById('impact-bar-chart').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                    datasets: [{
+                        label: 'Eco-Points',
+                        data: [65, 85, 45, 90, 120],
+                        backgroundColor: '#4CAF50'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+        
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+                type === 'success' ? 'bg-green-500 text-white' :
+                type === 'error' ? 'bg-red-500 text-white' :
+                type === 'warning' ? 'bg-yellow-500 text-white' :
+                'bg-blue-500 text-white'
+            }`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
